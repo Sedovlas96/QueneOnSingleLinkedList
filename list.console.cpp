@@ -3,8 +3,9 @@
 
 using namespace std;
 
-void inputData( Data data )
+Data inputData( Data data )
 {
-    cout << " Enter the data: ";
+    cout << "Please, Enter the data: ";
     cin >> data;
+    return data;
 }
