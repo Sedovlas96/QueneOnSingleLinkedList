@@ -3,6 +3,6 @@
 
 typedef int Data;
 
-void inputData( Data data );
+Data inputData( Data data );
 
 #endif
