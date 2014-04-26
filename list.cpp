@@ -1,55 +1,69 @@
 #include "list.h"
 #include <iostream>
 
-list::list():
-    top( nullptr ),
-    lengthOfQuene( 0 )
+QueneOnSingleLinkedList::QueneOnSingleLinkedList():
+    top( nullptr )
     { }
 
-list::~list()
+QueneOnSingleLinkedList::~QueneOnSingleLinkedList()
 {
     clearQuene( );
 }
 
-void list::push( Data datum )
+void QueneOnSingleLinkedList::push( Data data )
 {
     Node *p = nullptr;
     p = new Node;
+    p -> datum = data;
+    p -> link = top;
     top = p;
     p = nullptr;
 }
 
-void list::pop( )
+Data QueneOnSingleLinkedList::pop( )
 {
     if( top )
     {
         Node *p = nullptr;
         p = top;
-        cout << " Element " << top -> datum << " Left ";
-        top = top -> link
+        top = top -> link;
+        p -> link = nullptr;
+        p -> datum = 0;
         delete p;
         p = nullptr;
     }
 }
 
-void list::showQuene( ) const
+void QueneOnSingleLinkedList::showQuene( ) const
 {
     Node *p = nullptr;
     p = top;
     while( p )
     {
-        cout << p -> datum;
+        cout << p -> datum << " ";
         p = p -> link;
     }
     cout << endl;
 }
 
-void clearQuene( )
+void QueneOnSingleLinkedList::clearQuene( )
 {
     Node *p = nullptr;
-    p = tail;
-    while( tail )
+    p = top;
+    while( top )
     {
-        p = tail ->
+        p = top -> link;
+        delete top;
+        top = p;
     }
+    top = nullptr;
+}
+
+bool QueneOnSingleLinkedList::queneIsEmpty( ) const
+{
+    if( nullptr == top )
+    {
+        throw -1;
+    }
+    return top -> datum;
 }
