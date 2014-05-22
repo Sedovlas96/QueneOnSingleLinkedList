@@ -16,6 +16,8 @@ public:
     bool queneIsEmpty( ) const;
 
 private:
+    QueneOnSingleLinkedList (const QueneOnSingleLinkedList &original);
+    QueneOnSingleLinkedList & operator = (const QueneOnSingleLinkedList & rhs);
     struct Node
     {
         Data datum;
